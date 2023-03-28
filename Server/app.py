@@ -22,7 +22,7 @@ from PIL import Image
 app = Flask(_name_)
 CORS(app,resources={r'/': {'origins': ''}})
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/ImageApp'
+app.config['MONGO_URI'] = 'mongodb+srv://vbala2k21:image classification@cluster0.anq8cdc.mongodb.net/test'
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = 'thisisthesecretkey'
