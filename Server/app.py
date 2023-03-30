@@ -19,7 +19,7 @@ from torch.autograd import Variable
 from torchvision import models, transforms
 from PIL import Image
 
-app = Flask(_name_)
+app = Flask(__name__)
 CORS(app,resources={r'/': {'origins': ''}})
 
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/ImageApp'
@@ -147,5 +147,5 @@ def upload_image():
 def index():
     return jsonify({'message': 'Success'})
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True,host='0000.0000.0808',port=3000)
