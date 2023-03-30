@@ -25,7 +25,7 @@ function Signup({navigation}) {
   const {setloggedIn} = useContext(UserContext);
 
   const Signupfun = async val => {
-    const endpoint = 'http://192.168.244.26:3000/register';
+    const endpoint = 'http://192.168.244.26:5000/register';
     const data = {
       email: val.email,
       password: val.password,

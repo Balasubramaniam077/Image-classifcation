@@ -22,7 +22,13 @@ from PIL import Image
 app = Flask(__name__)
 CORS(app,resources={r'/': {'origins': ''}})
 
-app.config['MONGO_URI'] = 'mongodb+srv://vbala2k21:image classification@cluster0.anq8cdc.mongodb.net/test'
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
+app.config['MONGO_URI'] = 'mongodb+srv://rajeshkumar:9787234640@cluster0.inzkc.mongodb.net/ImageApp'
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = 'thisisthesecretkey'
@@ -148,4 +154,4 @@ def index():
     return jsonify({'message': 'Success'})
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0000.0000.0808',port=3000)
+    app.run(debug=True,host='0.0.0.0')

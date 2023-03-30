@@ -125,7 +125,7 @@ export default function Home({navigation}) {
       name: 'image.jpg',
     });
 
-    fetch('http://192.168.244.26:3000/api/upload-image', {
+    fetch('http://192.168.244.26:5000/api/upload-image', {
       method: 'POST',
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -134,6 +134,7 @@ export default function Home({navigation}) {
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         navigation.navigate('Recommendation', {image: file,data:data});
       });
   };

@@ -28,7 +28,7 @@ function Login() {
   const [loggedIn, setloggedIn] = useContext(UserContext);
 
   const Loginfun = async val => {
-    const endpoint = 'http://192.168.244.26:3000/login';
+    const endpoint = 'http://192.168.244.26:5000/login';
     const data = {
       email: val.email,
       password: val.password,
@@ -40,7 +40,7 @@ function Login() {
       console.log(AsyncStorage.getItem('token'))
       setloggedIn(true);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       seterror('Invalid email or password');
     }
   };

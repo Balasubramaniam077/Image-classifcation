@@ -51,7 +51,7 @@ export default function Recommendation({navigation, route}) {
             justifyContent: 'center',
           }}>
           <View style={{paddingLeft: 10}}>
-            <Text style={{color: '#000000'}}>{route.params.data.disease}</Text>
+            <Text style={{color: '#000000'}}>{route.params.data.message}</Text>
           </View>
         </View>
       </TouchableOpacity>
