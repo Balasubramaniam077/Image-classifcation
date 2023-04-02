@@ -12,6 +12,7 @@ import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {UserContext} from '../../../App';
+import config from '../../components/api/config';
 
 //Validation
 import {Formik} from 'formik';
@@ -28,7 +29,8 @@ function Login() {
   const [loggedIn, setloggedIn] = useContext(UserContext);
 
   const Loginfun = async val => {
-    const endpoint = 'http://192.168.244.26:5000/login';
+    const endpoint = config.apiUrl+'login';
+    console.log(endpoint);
     const data = {
       email: val.email,
       password: val.password,

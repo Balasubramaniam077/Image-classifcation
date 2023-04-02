@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {UserContext} from '../../../App';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {config} from '../../components/api/config';
 
 //Validation
 import {Formik} from 'formik';
@@ -25,7 +26,7 @@ function Signup({navigation}) {
   const {setloggedIn} = useContext(UserContext);
 
   const Signupfun = async val => {
-    const endpoint = 'http://192.168.244.26:5000/register';
+    const endpoint = config.apiUrl+'register';
     const data = {
       email: val.email,
       password: val.password,

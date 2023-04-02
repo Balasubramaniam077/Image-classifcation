@@ -16,6 +16,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {UserContext} from '../../../App';
 import {styles} from './styles';
+import config from '../../components/api/config';
 
 export default function Home({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -125,18 +126,18 @@ export default function Home({navigation}) {
       name: 'image.jpg',
     });
 
-    fetch('http://192.168.244.26:5000/api/upload-image', {
+    fetch(config.apiUrl+'api/upload-image', {
       method: 'POST',
       headers: {
         'Content-Type': 'multipart/form-data',
       },
       body: data,
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        navigation.navigate('Recommendation', {image: file,data:data});
-      });
+      .then(response => {console.log(response._bodyBlob)})
+      // .then(data => {
+      //   console.log(data);
+      //   navigation.navigate('Recommendation', {image: file,data:data});
+      // });
   };
 
   const Logout = async () => {

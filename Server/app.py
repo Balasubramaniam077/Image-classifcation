@@ -58,7 +58,7 @@ def register():
         user_id = mongo.db.users.insert_one({'email': request.json['email'], 'password': password})
         token = create_token(user_id)
         return jsonify({'token': token}), 201
-MODEL_PATH = "./model/dense_net.pt"
+MODEL_PATH = "C:/Users/rk916/OneDrive/Desktop/Image-classifcation/Server/model/dense_net.pt"
 device = torch.device("cpu")
 class_names = [
     "Bean_Angular_Leaf_Spot",
